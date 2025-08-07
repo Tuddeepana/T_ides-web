@@ -1,0 +1,57 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+@layer base {
+  html {
+    font-family: Inter, system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-gray-900 bg-white;
+    font-display: swap;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    line-height: 1.2;
+  }
+  
+  p, li, td {
+    @apply font-body;
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-safari-600 hover:bg-safari-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-safari-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-jungle-600 hover:bg-jungle-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-jungle-300;
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .sr-only:focus {
+    @apply static w-auto h-auto p-1 m-0 overflow-visible whitespace-normal;
+    clip: auto;
+  }
+  
+  .aspect-ratio-16-9 {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .aspect-ratio-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+}
