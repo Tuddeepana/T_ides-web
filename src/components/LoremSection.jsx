@@ -73,9 +73,9 @@ const LoremSection = () => {
             {/* Image */}
             <div className="relative">
               <picture>
-                <source srcSet="/images/safari-experience.webp" type="image/webp" />
+                <source srcSet="/images/elephant.webp" type="image/webp" />
                 <img 
-                  src="/images/safari-experience.jpg" 
+                  src="/images/elephant.webp"
                   alt="Safari jeep positioned for wildlife photography in Yala National Park with tourists observing elephants at a watering hole" 
                   className="w-full h-auto rounded-lg shadow-lg"
                   loading="lazy"

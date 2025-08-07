@@ -7,9 +7,9 @@ const AboutUs = () => {
             {/* Image */}
             <div className="relative">
               <picture>
-                <source srcSet="/images/guide-team.webp" type="image/webp" />
+                <source srcSet="/images/pecok.webp" type="image/webp" />
                 <img 
-                  src="/images/guide-team.jpg" 
+                  src="/images/pecok.webp"
                   alt="Experienced local safari guides from Tides Yala Safari standing beside their safari vehicle in Yala National Park" 
                   className="w-full h-auto rounded-lg shadow-lg"
                   loading="lazy"

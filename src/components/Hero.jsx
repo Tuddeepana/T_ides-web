@@ -9,9 +9,9 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <picture>
-          <source srcSet="/images/hero.webp" type="image/webp" />
+          <source srcSet="/images/htiger.webp" type="image/webp" />
           <img 
-            src="/images/hero.jpg" 
+            src="/images/htiger.webp"
             alt="Majestic leopard in Yala National Park at golden hour" 
             className="w-full h-full object-cover"
             loading="eager"
