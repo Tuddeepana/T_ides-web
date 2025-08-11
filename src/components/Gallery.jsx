@@ -6,45 +6,25 @@ const galleryImages = [
   {
     id: 1,
     src: '/images/gallery-1.jpg',
-    webp: '/images/gallery-1.webp',
+    webp: '/images/htiger.webp',
     alt: 'Leopard in Yala National Park stalking through tall grass at golden hour',
     title: 'Yala Leopard'
   },
   {
     id: 2,
     src: '/images/gallery-2.jpg', 
-    webp: '/images/gallery-2.webp',
+    webp: '/images/elephant.webp',
     alt: 'Elephant family at the waterhole during dry season in Yala',
     title: 'Elephants at Waterhole'
   },
   {
-    id: 3,
-    src: '/images/gallery-3.jpg',
-    webp: '/images/gallery-3.webp', 
-    alt: 'Sloth bear climbing a tree in Yala National Park',
-    title: 'Yala Sloth Bear'
-  },
-  {
-    id: 4,
-    src: '/images/gallery-4.jpg',
-    webp: '/images/gallery-4.webp',
-    alt: 'Spotted deer herd grazing in open grasslands of Yala',
-    title: 'Spotted Deer Herd'
-  },
-  {
     id: 5,
     src: '/images/gallery-5.jpg',
-    webp: '/images/gallery-5.webp',
+    webp: '/images/pecok.webp',
     alt: 'Peacock displaying colorful plumage in Yala forest',
     title: 'Yala Peacock'
-  },
-  {
-    id: 6,
-    src: '/images/gallery-6.jpg',
-    webp: '/images/gallery-6.webp',
-    alt: 'Wild buffalo herd crossing lagoon at sunset in Yala',
-    title: 'Buffalo at Sunset'
   }
+  // Removed Sloth Bear, Deer Herd, Buffalo images
 ]
 
 const Gallery = () => {
@@ -57,7 +37,7 @@ const Gallery = () => {
 
   const openLightbox = useCallback((image) => {
     setSelectedImage(image)
-    document.body.style.overflow = 'hidden' // Prevent background scroll
+    document.body.style.overflow = 'hidden'
   }, [])
 
   const closeLightbox = useCallback(() => {
@@ -71,7 +51,6 @@ const Gallery = () => {
         closeLightbox()
       }
     }
-
     if (selectedImage) {
       document.addEventListener('keydown', handleEscape)
       return () => document.removeEventListener('keydown', handleEscape)
@@ -79,21 +58,21 @@ const Gallery = () => {
   }, [selectedImage, closeLightbox])
 
   return (
-    <section id="gallery" className="py-16 bg-gray-50" aria-label="Wildlife photo gallery">
+    <section id="gallery" className="py-16 bg-gray-50 relative" aria-label="Wildlife photo gallery">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Wildlife Gallery
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover the incredible biodiversity of Yala National Park through our lens. 
+            Discover the incredible biodiversity of Yala National Park through our lens.
             Each photo tells a story of Sri Lanka's magnificent wildlife.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {galleryImages.map((image) => (
-            <div 
+            <div
               key={image.id}
               className="group relative bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:scale-105"
               onClick={() => openLightbox(image)}
@@ -110,7 +89,7 @@ const Gallery = () => {
               <div className="aspect-ratio-4-3 overflow-hidden">
                 <picture>
                   <source srcSet={image.webp} type="image/webp" />
-                  <img 
+                  <img
                     src={image.src}
                     alt={image.alt}
                     className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-110 ${
@@ -120,8 +99,6 @@ const Gallery = () => {
                     onLoad={() => handleImageLoad(image.id)}
                   />
                 </picture>
-                
-                {/* Loading placeholder */}
                 {!loadedImages.has(image.id) && (
                   <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
                     <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,8 +106,6 @@ const Gallery = () => {
                     </svg>
                   </div>
                 )}
-
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
                     <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3">
@@ -141,7 +116,6 @@ const Gallery = () => {
                   </div>
                 </div>
               </div>
-
               <div className="p-4">
                 <h3 className="font-semibold text-gray-900 group-hover:text-safari-600 transition-colors">
                   {image.title}
@@ -156,8 +130,8 @@ const Gallery = () => {
           <p className="text-lg text-gray-600 mb-6">
             Ready to capture your own wildlife memories?
           </p>
-          <a 
-            href="tel:+941716520690" 
+          <a
+            href="tel:+941716520690"
             className="btn-primary text-lg px-8 py-4"
             aria-label="Book your photography safari"
           >
@@ -165,6 +139,21 @@ const Gallery = () => {
           </a>
         </div>
       </div>
+
+      {/* Safari Jeep badge in the corner */}
+   <div className="flex justify-center my-12">
+     <div className="relative">
+       <img
+         src="/images/jeep.jpg"
+         alt="Our Safari Jeep"
+         className="w-[420px] h-[240px] object-cover rounded-2xl shadow-2xl border-8 border-green-600 ring-4 ring-white transition-transform duration-300 hover:scale-105"
+         style={{ objectPosition: 'center' }}
+       />
+       <span className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xl font-bold px-6 py-2 rounded-lg shadow-lg border-2 border-white">
+         Our Safari Jeep
+       </span>
+     </div>
+   </div>
 
       {/* Lightbox */}
       {selectedImage && (
